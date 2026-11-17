@@ -1,0 +1,16 @@
+# Dependencies (heavy folders that npm install recreates)
+node_modules/
+
+# Environment variables (keeps your secret keys & DB passwords private)
+.env
+.env.local
+.env.production
+
+# Build & log files
+dist/
+build/
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db

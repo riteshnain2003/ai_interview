@@ -1,0 +1,16 @@
+{
+  "name": "mern-project",
+  "version": "1.0.0",
+  "scripts": {
+    "backend": "node server/index.js",
+    "frontend": "npm run dev --prefix interview_ai",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"bgBlue.bold,bgGreen.bold\" \"npm run backend\" \"npm run frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  },
+  "dependencies": {
+    "chart.js": "^4.6.1",
+    "react-chartjs-2": "^5.3.1"
+  }
+}
