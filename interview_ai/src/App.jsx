@@ -13,7 +13,7 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className="font-serif bg-gradient-to-bl from-[#000000] to-[#414042] min-h-screen text-white overflow-x-hidden">
+    <div className="font-sans bg-gradient-to-bl from-[#000000] to-[#414042] min-h-screen text-white overflow-x-hidden flex flex-col">
       <Navbar />
       <Toaster position="top-right" reverseOrder={false} />
       <Routes>

@@ -47,12 +47,12 @@ const Login = () => {
   };
 
   return (
-    <div className='flex min-h-screen items-center justify-center bg-gradient-to-br from-[#121218] to-[#1f2937] p-4'>
+    <div className='flex min-h-[calc(100vh-64px)] items-center justify-center p-4 sm:p-6'>
       <form
-        className='w-full max-w-md rounded-2xl bg-gray-900 border border-gray-700 p-8 shadow-2xl text-white'
+        className='w-full max-w-md rounded-2xl bg-gray-900 border border-gray-700/80 p-5 sm:p-8 shadow-2xl text-white my-4'
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h2 className='mb-2 text-center text-3xl font-bold text-white'>Welcome Back</h2>
+        <h2 className='mb-2 text-center text-2xl sm:text-3xl font-bold text-white'>Welcome Back</h2>
         <p className='mb-6 text-center text-sm text-gray-400'>
           Log in to continue your AI mock interview preparation
         </p>

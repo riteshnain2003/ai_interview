@@ -1,73 +1,125 @@
-import React from 'react'
-import interview from "../assets/interview.jpeg"
-import img1 from "../assets/img1.png"
-import img2 from "../assets/img2.avif"
-import img3 from "../assets/img3.jpg"
-import Footer from "./Footer"
-import mic from "../assets/mic1.jpg"
+import React from 'react';
+import interview from "../assets/interview.jpeg";
+import img1 from "../assets/img1.png";
+import img2 from "../assets/img2.avif";
+import img3 from "../assets/img3.jpg";
+import Footer from "./Footer";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const navigate=useNavigate()
-    const data=[
-        {"h1":"Real-Time conversational Ai","img":img1,},
-        {"h1":"Code and system design Sandbox","img":img2},
-        {"h1":"Post-Interview Analytics & Feedback","img":img3}
-    
-    ]
-
-    const startmock=()=>{
-        navigate("/Details")
-
+  const navigate = useNavigate();
+  const data = [
+    {
+      h1: "Real-Time Conversational AI",
+      desc: "Simulate natural technical discussions with real-time adaptive questioning.",
+      img: img1
+    },
+    {
+      h1: "Code & Architecture Sandbox",
+      desc: "Solve algorithmic challenges and evaluate system design architectures live.",
+      img: img2
+    },
+    {
+      h1: "Deep Post-Interview Analytics",
+      desc: "Actionable metrics, strength breakdown, and comprehensive AI performance scoring.",
+      img: img3
     }
+  ];
+
+  const startmock = () => {
+    navigate("/Details");
+  };
 
   return (
-    <>
-        <div className='flex  mt-5  '>
-        {/* left div  */}
-        <div className='flex flex-col gap-5 w-[50%]  items-center pt-30'>
-        <h1 className='text-white font-semibold text-6xl '>Master Your <span className='text-blue-300'>Next</span><br />Interview with <span className='text-red-600'>AI</span></h1>
-        <p className='text-md font-semibold text-blue-200'>Practice real-time technical, system design, and behavioural <br />interviews. Get instant, deep feedback on your answer- <br />voice or text.</p>
+    <div className='flex flex-col min-h-screen'>
+      {/* Hero Section */}
+      <section className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 lg:pt-20 pb-12 w-full'>
+        <div className='flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12'>
+          
+          {/* Left Text Content */}
+          <div className='flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-1/2 gap-4 sm:gap-5'>
+            <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-medium'>
+              <span className='w-2 h-2 rounded-full bg-blue-400 animate-pulse'></span>
+              AI-Powered Technical Assessment
+            </div>
+
+            <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.2] sm:leading-[1.15]'>
+              Master Your <span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300'>Next</span> Interview with <span className='text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-400'>AI</span>
+            </h1>
+
+            <p className='text-sm sm:text-base lg:text-lg text-gray-300 max-w-xl leading-relaxed'>
+              Practice real-time technical, system design, and behavioral interviews.
+              Get instant, deep feedback on your answers with targeted insights.
+            </p>
+
+            <div className='pt-2 flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center'>
+              <button
+                onClick={startmock}
+                type="button"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 focus:outline-none active:scale-95 font-semibold rounded-2xl text-base sm:text-lg px-6 sm:px-7 py-3.5 shadow-xl shadow-blue-500/25 transition-all cursor-pointer"
+              >
+                <span>Start Your Mock Interview</span>
+                <FaLongArrowAltRight className='text-lg' />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Visual Graphic */}
+          <div className='w-full lg:w-1/2 relative flex justify-center items-center px-2 sm:px-6'>
+            {/* Glowing Backdrop */}
+            <div className='absolute -inset-2 bg-gradient-to-tr from-cyan-500/30 via-indigo-500/30 to-purple-500/30 rounded-3xl blur-2xl sm:blur-3xl opacity-70 pointer-events-none'></div>
+
+            <div className='relative z-10 w-full max-w-md lg:max-w-lg transition-transform duration-500 hover:scale-[1.02] lg:[transform:rotateX(10deg)_rotateY(-12deg)_rotateZ(4deg)]'>
+              <img
+                className='w-full h-auto rounded-2xl shadow-2xl border border-blue-400/30 object-cover'
+                src={interview}
+                alt="AI Mock Interview Interface"
+              />
+            </div>
+          </div>
+
         </div>
-        {/* right div  */}
-        <div className='w-[50%] relative flex justify-center'>
-            {/* glowing div in background */}
-            <div className='absolute top-10 w-[540px] h-[340px] bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-600 rounded-3xl blur-3xl opacity-60 [transform:rotateX(15deg)_rotateY(-20deg)_rotateZ(10deg)] pointer-events-none'></div>
+      </section>
 
-            <img className='relative z-10 w-[600px] mt-15 shadow-[0px_0px_5px_5px_lightblue] rounded [transform:rotateX(15deg)_rotateY(-20deg)_rotateZ(10deg)]' src={interview} alt="img" />
-        </div>
-        </div>
-        <div className='flex  mt-5 '>
-            
-        <button onClick={()=>startmock()} type="button" className=" mx-auto flex  items-center gap-2 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl  focus:outline-none active:scale-95 font-medium rounded-3xl text-lg px-4 py-3  text-center leading-5">Start Your Mock Interview <FaLongArrowAltRight className='' /></button>
-        
-        </div>
-
-        {/* bottom card */}
-        <div className='flex flex-col  pl-35 mt-20'>
-            <p className='text-xl text-gray-400 font-semibold'>Features at a Glance</p>
-            <h1 className='text-4xl text-white font-bold'>Trusted by Developers</h1>
-        </div>
-        <div className='flex justify-around mt-5'>
-            {
-                data.map((item,index)=>(
-                    <div key={index} className='flex items-center flex-col border bg-blue-300 p-1 rounded-xl'>
-                        <h1 className='font-bold text-lg text-black'>{item.h1}</h1>
-                        <img src={item.img} className='w-100 h-50' alt="img" />
-                    </div>
-                ))
-
-            }
+      {/* Features Section */}
+      <section className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-20 w-full'>
+        <div className='flex flex-col items-center text-center gap-2 mb-10'>
+          <p className='text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-400'>
+            Features at a Glance
+          </p>
+          <h2 className='text-2xl sm:text-4xl text-white font-bold tracking-tight'>
+            Built for Modern Developers
+          </h2>
+          <p className='text-sm sm:text-base text-gray-400 max-w-2xl'>
+            Experience realistic technical interviews tailored specifically to your resume and targeted job role.
+          </p>
         </div>
 
-        {/* footer  */}
-        <Footer />
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'>
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className='flex flex-col bg-gray-900/80 border border-gray-800 hover:border-indigo-500/50 rounded-2xl p-5 shadow-lg hover:shadow-indigo-500/10 transition-all duration-300'
+            >
+              <div className='overflow-hidden rounded-xl bg-gray-950 aspect-video mb-4 border border-gray-800'>
+                <img
+                  src={item.img}
+                  className='w-full h-full object-cover transition-transform duration-300 hover:scale-105'
+                  alt={item.h1}
+                />
+              </div>
+              <h3 className='font-bold text-lg text-white mb-2'>{item.h1}</h3>
+              <p className='text-sm text-gray-400 leading-relaxed'>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    </>
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
+};
 
-  )
-}
-
-
-export default Home
+export default Home;

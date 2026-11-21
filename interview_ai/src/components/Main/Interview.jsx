@@ -96,9 +96,9 @@ const Interview = () => {
   };
 
   return (
-    <div className='grid grid-cols-2 gap-4 p-4 px-10 max-w-6xl mx-auto mt-4'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 p-4 sm:px-6 lg:px-8 max-w-6xl mx-auto my-2 sm:my-6'>
       {/* AI Interviewer View */}
-      <div className='relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-700 h-72 shadow-lg'>
+      <div className='relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-700/80 h-56 sm:h-64 md:h-72 shadow-lg'>
         <img src={img1} alt="AI Interviewer" className='w-full h-full object-cover opacity-90' />
         <div className='absolute top-3 left-3 z-10'>
           <p className='flex gap-2 items-center text-xs text-white bg-black/60 backdrop-blur-md px-3 py-1 rounded-full'>
@@ -113,7 +113,7 @@ const Interview = () => {
       </div>
 
       {/* Candidate View */}
-      <div className='relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-700 h-72 shadow-lg'>
+      <div className='relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-700/80 h-56 sm:h-64 md:h-72 shadow-lg'>
         <img src={candidate} alt="Candidate" className='w-full h-full object-cover p-2' />
         <p className='absolute top-3 left-3 rounded-full text-xs text-white bg-black/60 backdrop-blur-md px-3 py-1'>
           Candidate (You)
@@ -121,43 +121,43 @@ const Interview = () => {
       </div>
 
       {/* Live Conversation Transcript */}
-      <div className='flex flex-col bg-gray-900 rounded-2xl border border-gray-700 h-72 text-white shadow-lg overflow-hidden'>
+      <div className='flex flex-col bg-gray-900 rounded-2xl border border-gray-700/80 min-h-[220px] sm:h-72 text-white shadow-lg overflow-hidden'>
         <div className='flex justify-between items-center border-b border-gray-800 p-3 bg-black/30'>
-          <h2 className='text-sm font-semibold tracking-wide'>Live Interview Question</h2>
-          <p className='flex gap-1.5 text-xs bg-gray-800 rounded-full px-3 py-1 items-center text-gray-300'>
+          <h2 className='text-xs sm:text-sm font-semibold tracking-wide'>Live Interview Question</h2>
+          <p className='flex gap-1.5 text-xs bg-gray-800 rounded-full px-2.5 sm:px-3 py-1 items-center text-gray-300'>
             AI Status <GoDotFill className='text-emerald-400 animate-pulse' />
           </p>
         </div>
         <div className='p-4 overflow-y-auto flex-1'>
-          <p className='text-emerald-400 font-bold text-base mb-2'>
+          <p className='text-emerald-400 font-bold text-sm sm:text-base mb-2'>
             Question {questionno}:
           </p>
-          <p className='text-gray-100 text-lg leading-relaxed'>
+          <p className='text-gray-100 text-base sm:text-lg leading-relaxed'>
             {Question ? Question : "Preparing your question..."}
           </p>
         </div>
       </div>
 
       {/* Answer Input Area */}
-      <div className='bg-gray-900 rounded-2xl border border-gray-700 h-72 p-4 flex flex-col justify-between shadow-lg'>
+      <div className='bg-gray-900 rounded-2xl border border-gray-700/80 min-h-[240px] sm:h-72 p-3 sm:p-4 flex flex-col justify-between shadow-lg'>
         <div className='flex justify-between items-center mb-2'>
-          <h3 className='text-white font-semibold text-sm'>Your Response</h3>
-          <span className='text-xs text-gray-400'>Be as clear and structured as possible</span>
+          <h3 className='text-white font-semibold text-xs sm:text-sm'>Your Response</h3>
+          <span className='text-xs text-gray-400'>Structured thoughts yield better feedback</span>
         </div>
-        <form onSubmit={handleSubmit(submithandler)} className='flex flex-col flex-1 justify-between'>
+        <form onSubmit={handleSubmit(submithandler)} className='flex flex-col flex-1 justify-between gap-2'>
           <textarea
             {...register("answer", { required: "Please enter your response before submitting." })}
             placeholder='Type your response here...'
-            className='bg-gray-800/80 p-3 text-white resize-none w-full focus:outline-none focus:ring-1 focus:ring-indigo-500 rounded-xl flex-1 text-sm border border-gray-700'
+            className='bg-gray-800/80 p-3 text-white resize-none w-full focus:outline-none focus:ring-1 focus:ring-indigo-500 rounded-xl flex-1 text-sm border border-gray-700/80'
           />
           {errors.answer && (
-            <span className='text-red-400 text-xs mt-1'>{errors.answer.message}</span>
+            <span className='text-red-400 text-xs'>{errors.answer.message}</span>
           )}
-          <div className='text-right mt-2'>
+          <div className='text-right mt-1'>
             <button
               type='submit'
               disabled={submitting}
-              className='bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white text-sm font-semibold px-5 py-2 rounded-lg transition-all disabled:opacity-50 cursor-pointer shadow-md'
+              className='w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-lg transition-all disabled:opacity-50 cursor-pointer shadow-md'
             >
               {submitting ? "Submitting..." : "Submit Answer"}
             </button>
@@ -166,7 +166,7 @@ const Interview = () => {
       </div>
 
       {/* Bottom Action Bar */}
-      <div className='flex w-full gap-4 justify-center col-span-2 mt-2'>
+      <div className='flex w-full gap-4 justify-center col-span-1 md:col-span-2 mt-2 sm:mt-4'>
         <button
           onClick={() => setshowmodel({ status: true, text: "Are you sure you want to end this interview?", type: "end" })}
           title="End Interview"
@@ -185,9 +185,9 @@ const Interview = () => {
 
       {/* Confirmation Modal */}
       {showmodel.status && (
-        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm'>
-          <div className='flex flex-col gap-6 bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-md items-center p-8 text-center text-white shadow-2xl'>
-            <p className='text-xl font-semibold'>{showmodel.text}</p>
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4'>
+          <div className='flex flex-col gap-6 bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-md items-center p-6 sm:p-8 text-center text-white shadow-2xl'>
+            <p className='text-lg sm:text-xl font-semibold leading-relaxed'>{showmodel.text}</p>
             <div className='flex gap-6 mt-2'>
               <button
                 onClick={handleModalClose}

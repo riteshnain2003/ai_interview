@@ -14,7 +14,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await api.post('/auth/logout');
-    } catch (e) {
+    } catch {
       // Ignore network errors on logout
     }
     dispatch(setLogout());
@@ -23,48 +23,50 @@ const Navbar = () => {
   };
 
   return (
-    <header className='flex items-center justify-between px-6 py-3 border-b border-gray-800 bg-black/40 backdrop-blur-md sticky top-0 z-40'>
+    <header className='flex items-center justify-between px-3 sm:px-6 lg:px-8 py-3 border-b border-gray-800/80 bg-black/60 backdrop-blur-md sticky top-0 z-50 transition-all'>
       {/* Brand */}
-      <Link to="/" className='flex gap-3 items-center hover:opacity-90 transition-opacity'>
-        <img src={ai} className='w-10 h-10 rounded-full shadow-lg' alt="AI Interviewer Logo" />
-        <h1 className='text-white font-semibold text-2xl tracking-wide'>AI Interviewer</h1>
+      <Link to="/" className='flex gap-2 sm:gap-3 items-center hover:opacity-90 transition-opacity min-w-0 mr-2'>
+        <img src={ai} className='w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-lg object-cover shrink-0' alt="AI Interviewer Logo" />
+        <h1 className='text-white font-semibold text-base sm:text-xl lg:text-2xl tracking-tight truncate'>
+          AI <span className='text-blue-400'>Interviewer</span>
+        </h1>
       </Link>
 
       {/* Nav Actions */}
-      <div className='flex items-center gap-3'>
+      <div className='flex items-center gap-1.5 sm:gap-3 shrink-0'>
         {isAuthenticated ? (
-          <div className='flex items-center gap-4'>
-            <span className='text-sm text-gray-300 font-medium hidden sm:inline '>
-              Welcome, <strong className='text-indigo-400'>{user?.name || 'Candidate'}</strong>
+          <div className='flex items-center gap-1.5 sm:gap-3'>
+            <span className='text-xs sm:text-sm text-gray-300 font-medium hidden md:inline'>
+              Welcome, <strong className='text-indigo-400 font-semibold'>{user?.name || 'Candidate'}</strong>
             </span>
-            {/* <button
+            <button
               onClick={() => navigate('/Details')}
               type="button"
-              className="text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 font-medium text-sm px-4 py-2 rounded-lg transition-all"
+              className="text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 font-medium text-xs sm:text-sm px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all shadow-sm cursor-pointer"
             >
-              Start Interview
-            </button> */}
+              <span className='hidden sm:inline'>Interview </span>Prep
+            </button>
             <button
               onClick={handleLogout}
               type="button"
-              className="text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 active:scale-95 font-medium text-sm px-4 py-2 rounded-lg transition-all"
+              className="text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 active:scale-95 font-medium text-xs sm:text-sm px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all cursor-pointer"
             >
               Logout
             </button>
           </div>
         ) : (
-          <div className='flex text-sm text-white font-medium gap-2'>
+          <div className='flex text-xs sm:text-sm text-white font-medium gap-1.5 sm:gap-3'>
             <button
               onClick={() => navigate('/Login')}
               type="button"
-              className="text-white bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 active:scale-95 px-4 py-2 rounded-lg transition-all"
+              className="text-white bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 active:scale-95 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all shadow-sm cursor-pointer"
             >
               Login
             </button>
             <button
               onClick={() => navigate('/Signup')}
               type="button"
-              className="text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 active:scale-95 px-4 py-2 rounded-lg transition-all"
+              className="text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 active:scale-95 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all shadow-sm cursor-pointer whitespace-nowrap"
             >
               Sign Up
             </button>

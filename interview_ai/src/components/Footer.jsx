@@ -11,14 +11,14 @@ const Footer = () => {
   return (
     <footer className="mt-20 border-t border-neutral-800 bg-neutral-950/80 backdrop-blur-md text-gray-300">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
           
           {/* Brand & Description (Spans 2 columns on lg screens) */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          <div className="sm:col-span-2 lg:col-span-2 flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-3 w-fit">
               <img src={ai} alt="AI Interviewer Logo" className="w-9 h-9 rounded-full object-cover ring-2 ring-blue-500/30" />
-              <span className="text-2xl font-bold text-white tracking-wide">
+              <span className="text-xl sm:text-2xl font-bold text-white tracking-wide">
                 AI <span className="text-blue-400">Interviewer</span>
               </span>
             </Link>
@@ -35,13 +35,10 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
-                className="w-9 h-9  rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-600 transition-colors"
+                className="w-9 h-9 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-600 transition-colors"
               >
-               <img src={github} className='w-9 h-8' alt="" />
+                <img src={github} className='w-5 h-5 object-contain' alt="GitHub" />
               </a>
-
-              {/* Twitter / X */}
-              
 
               {/* LinkedIn */}
               <a
@@ -49,15 +46,10 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="w-9 h-9 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-600 transition-colors"
+                className="w-9 h-9 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-600 transition-colors overflow-hidden"
               >
-                <img src={linkdin} alt="" />
-
-                
+                <img src={linkdin} className='w-5 h-5 object-contain' alt="LinkedIn" />
               </a>
-
-              
-              
             </div>
           </div>
 
@@ -105,34 +97,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Stay Updated */}
-          <div>
-            <img src={robo} alt="" />
+          {/* Column 3: Robot Avatar graphic */}
+          <div className="flex items-center justify-center sm:justify-start lg:justify-end">
+            <img src={robo} alt="AI Assistant" className="w-28 sm:w-36 lg:w-40 h-auto object-contain drop-shadow-lg" />
           </div>
-          {/* <div className="flex flex-col gap-3">
-            <h3 className="text-white text-sm font-semibold uppercase tracking-wider">Stay Ahead</h3>
-            <p className="text-xs text-gray-400">
-              Get weekly mock interview questions and curated technical tips straight to your inbox.
-            </p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-2 mt-1">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-3 py-2 text-sm rounded-md bg-neutral-900 border border-neutral-800 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
-              />
-              <button
-                type="submit"
-                className="w-full py-2 px-3 text-sm font-medium text-white bg-gradient-to-r from-blue-500 to-cyan-500 rounded-md hover:from-blue-600 hover:to-cyan-600 transition-all active:scale-[0.98]"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div> */}
 
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-neutral-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="mt-10 sm:mt-12 pt-6 border-t border-neutral-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 text-center sm:text-left">
           <div className="flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>All systems operational</span>
@@ -140,7 +113,7 @@ const Footer = () => {
 
           <p>© {currentYear} AI Interviewer. All rights reserved.</p>
 
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-5">
             <a href="#privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
             <a href="#terms" className="hover:text-gray-300 transition-colors">Terms of Service</a>
             <a href="#cookies" className="hover:text-gray-300 transition-colors">Cookie Settings</a>
